@@ -16,12 +16,21 @@ make
 Make sure Gazebo can load the plugins later
 
 ```
+cd ..
 export GAZEBO_PLUGIN_PATH=`pwd`:$GAZEBO_PLUGIN_PATH
 ```
 
-Run using gazebo itself with:
+Make sure Gazebo can load the tram model later
 
-gazebo trajectory_guided.world
+```
+cd models
+export GAZEBO_MODEL_PATH=`pwd`:$GAZEBO_MODEL_PATH
+```
+
+
+Run using Gazebo itself with:
+
+`$ gazebo trajectory_guided.world`
 
 ---
 

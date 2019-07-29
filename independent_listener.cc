@@ -35,7 +35,7 @@ void posesStampedCallback(ConstPosesStampedPtr &posesStamped)
   {
     const ::gazebo::msgs::Pose &pose = posesStamped->pose(i);
     std::string name = pose.name();
-    if (name == std::string("box"))
+    if (name == std::string("tram"))
     {
       const ::gazebo::msgs::Vector3d &position = pose.position();
 

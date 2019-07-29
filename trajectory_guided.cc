@@ -39,7 +39,7 @@ namespace gazebo
 
         gazebo::common::PoseKeyFrame *key;
 
-        // set starting location of the box
+        // set starting location of the model
         key = anim->CreateKeyFrame(0);
         key->Translation(ignition::math::Vector3d(0, 0, 0));
         key->Rotation(ignition::math::Quaterniond(0, 0, 0));
