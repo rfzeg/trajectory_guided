@@ -2,10 +2,28 @@
 <sdf version="1.4">
   <world name="trajectory_guided_world">
 
-    <!-- Ground Plane -->
-    <include>
-      <uri>model://ground_plane</uri>
-    </include>
+    <!-- Set camera view -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>102.596 -123.599 40.4095 0 0.167643 2.25219</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+
+    <!-- Disable shadows, disable grid, disable origin, add sky -->
+    <scene>
+      <shadows>false</shadows>
+      <ambient>0.2 0.2 0.2 1</ambient>
+      <background>1 1 1 1</background>
+      <grid>false</grid>
+      <origin_visual>false</origin_visual>
+       <sky>
+         <clouds>
+           <speed>6</speed>
+         </clouds>
+       </sky>
+    </scene>
 
     <include>
       <uri>model://sun</uri>
