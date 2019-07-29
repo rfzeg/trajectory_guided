@@ -35,39 +35,66 @@ namespace gazebo
               // name the animation "test",
               // make it last 10 seconds,
               // and set it on a repeat loop
-              new gazebo::common::PoseAnimation("test", 10.0, true));
+              new gazebo::common::PoseAnimation("test", 32.0, true));
 
         gazebo::common::PoseKeyFrame *key;
+    
+       // Trajectory goes through 12 points and takes 32s in between them
 
-        // set starting location of the model
+       // set starting location of the model
         key = anim->CreateKeyFrame(0);
-        key->Translation(ignition::math::Vector3d(0, 0, 0));
+        key->Translation(ignition::math::Vector3d(0, -20, 0)); // midway
         key->Rotation(ignition::math::Quaterniond(0, 0, 0));
 
         // set waypoint location after 2 seconds
         key = anim->CreateKeyFrame(2.0);
-        key->Translation(ignition::math::Vector3d(-50, -50, 0));
-        key->Rotation(ignition::math::Quaterniond(0, 0, 1.5707));
-
-
-        key = anim->CreateKeyFrame(4.0);
-        key->Translation(ignition::math::Vector3d(10, 20, 0));
-        key->Rotation(ignition::math::Quaterniond(0, 0, 1.5707));
-
+        key->Translation(ignition::math::Vector3d(30, -20, 0)); // in
+        key->Rotation(ignition::math::Quaterniond(0, 0, 0));
 
         key = anim->CreateKeyFrame(6.0);
-        key->Translation(ignition::math::Vector3d(-10, 20, 0));
-        key->Rotation(ignition::math::Quaterniond(0, 0, 1.5707));
-
+        key->Translation(ignition::math::Vector3d(40, -10, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 1.5707)); // out
 
         key = anim->CreateKeyFrame(8.0);
-        key->Translation(ignition::math::Vector3d(10, -20, 0));
-        key->Rotation(ignition::math::Quaterniond(0, 0, 1.5707));
+        key->Translation(ignition::math::Vector3d(40, 0, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 1.5707)); // midway
+
+        key = anim->CreateKeyFrame(10.0);
+        key->Translation(ignition::math::Vector3d(40, 10, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 1.5707)); // in
+
+        key = anim->CreateKeyFrame(14.0);
+        key->Translation(ignition::math::Vector3d(30, 20, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 3.14159)); // out
+
+        key = anim->CreateKeyFrame(16.0);
+        key->Translation(ignition::math::Vector3d(0, 20, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 3.14159)); // midway
+
+        key = anim->CreateKeyFrame(18.0);
+        key->Translation(ignition::math::Vector3d(-30, 20, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 3.14159)); // in
+
+        key = anim->CreateKeyFrame(22.0);
+        key->Translation(ignition::math::Vector3d(-40, 10, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 4.71239)); // out
+
+        key = anim->CreateKeyFrame(24.0);
+        key->Translation(ignition::math::Vector3d(-40, 0, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 4.71239)); // midway
+
+        key = anim->CreateKeyFrame(26.0);
+        key->Translation(ignition::math::Vector3d(-40, -10, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 4.71239)); // in
+
+        key = anim->CreateKeyFrame(30.0);
+        key->Translation(ignition::math::Vector3d(-30, -20, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 6.28319)); // out
 
         // set final location equal to starting location
-        key = anim->CreateKeyFrame(10);
-        key->Translation(ignition::math::Vector3d(0, 0, 0));
-        key->Rotation(ignition::math::Quaterniond(0, 0, 0));
+        key = anim->CreateKeyFrame(32.0);
+        key->Translation(ignition::math::Vector3d(0, -20, 0));
+        key->Rotation(ignition::math::Quaterniond(0, 0, 6.28319)); // midway
 
         // set the animation
         _parent->SetAnimation(anim);
